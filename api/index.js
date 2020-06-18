@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
   }
   console.log('Host', host)
   // If you’re viewing the production site not from a custom domain
-  if ([req.headers['x-vercel-deployment-url'], 'summer-domains.vercel.app'].includes(host)) {
+  if ([req.headers['x-vercel-deployment-url'], 'summer-domains.vercel.app', 'summer-domains.hackclub.dev'].includes(host)) {
     return res.send(`
       <title>Hacker Detected</title>
       <h1>Hello, hacker!</h1>
