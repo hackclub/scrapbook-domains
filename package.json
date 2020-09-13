@@ -3,6 +3,6 @@
   "license": "MIT",
   "author": "Lachlan Campbell (https://lachlanjc.com) <lachlan@hackclub.com>",
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.1"
   }
 }
