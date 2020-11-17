@@ -3,7 +3,7 @@
   "github": { "silent": true },
   "redirects": [
     {
-      "source": "/next/image",
+      "source": "/_next/image",
       "destination": "https://scrapbook.hackclub.com/next/image"
     }
   ],
