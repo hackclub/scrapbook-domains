@@ -4,7 +4,7 @@
   "redirects": [
     {
       "source": "/_next/image",
-      "destination": "https://scrapbook.hackclub.com/next/image"
+      "destination": "https://scrapbook.hackclub.com/_next/image"
     }
   ],
   "rewrites": [
