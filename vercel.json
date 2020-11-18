@@ -6,7 +6,7 @@
       "source": "/(.+)",
       "destination": "https://scrapbook.hackclub.com/$1"
     }
-   ],
+  ],
   "rewrites": [
     {
       "source": "/",
