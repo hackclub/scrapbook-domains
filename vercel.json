@@ -1,14 +1,16 @@
 {
   "public": true,
   "github": { "silent": true },
+  "redirects": [
+    {
+      "source": "/(.+)",
+      "destination": "https://scrapbook.hackclub.com/$1"
+    }
+   ],
   "rewrites": [
     {
       "source": "/",
       "destination": "/api/index"
-    },
-    {
-      "source": "/(.+)",
-      "destination": "https://scrapbook.hackclub.com/$1"
     }
   ]
 }
