@@ -4,10 +4,6 @@ module.exports = {
       {
         "source": "/",
         "destination": "/api"
-      },
-      {
-        "source": "/:slug*",
-        "destination": "https://scrapbook.hackclub.com/:slug*"
       }
     ]
   },
