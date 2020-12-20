@@ -1,7 +1,7 @@
 const fetch = require('node-fetch')
 
 module.exports = async (req, res) => {
-  const { host } = req.headers
+  const host = req.headers
   if (!host) {
     return res.status(500).send('No host header found')
   }
