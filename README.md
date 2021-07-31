@@ -1,12 +1,12 @@
-# [Summer Scrapbook](https://scrapbook.hackclub.com/) Domains
+# [Scrapbook](https://scrapbook.hackclub.com/) Domains
 
-This repo/function handles the custom domain functionality for [Hack Club](https://hackclub.com/)’s [Summer Scrapbook](https://scrapbook.hackclub.com/), which is part of the [2020 Summer of Making](https://summer.hackclub.com/).
+This repo/function handles the custom domain functionality for [Hack Club](https://hackclub.com/)’s [Scrapbook](https://scrapbook.hackclub.com/), which was built as part of the [2020 Summer of Making](https://summer.hackclub.com/).
 
 To set up a custom domain, refer to the [Scrapbook’s About page](https://scrapbook.hackclub.com/).
 
 ## Why does this exist?
 
-The profile pages run in the [Next.js app](https://github.com/hackclub/summer-scrapbook), where they’re [statically rendered](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) for performance. We want people to point their own domains to the site, but you can’t CNAME to a specific path, so we need to serve the custom domain functionality at the root path. This would be doable with [`getServerSideProps`](https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering) in Next (checking the `host` header & serving the appropriate page), but it’d mean a performance hit & higher sever load for every hit to the website, which we want to avoid. This is a single [serverless function](https://vercel.com/docs/v2/serverless-functions/introduction) to serve custom domains.
+The profile pages run in the [Next.js app](https://github.com/hackclub/scrapbook), where they’re [statically rendered](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) for performance. We want people to point their own domains to the site, but you can’t CNAME to a specific path, so we need to serve the custom domain functionality at the root path. This would be doable with [`getServerSideProps`](https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering) in Next (checking the `host` header & serving the appropriate page), but it’d mean a performance hit & higher sever load for every hit to the website, which we want to avoid. This is a single [serverless function](https://vercel.com/docs/v2/serverless-functions/introduction) to serve custom domains.
 
 ## How does this work?
 
