@@ -39,7 +39,7 @@ module.exports = async (req, res) => {
       .send(`Unable to find a scrapbook page with domain ${host}.`);
   }
   // Get the username of the user
-  const username = user.username|| "zrl";
+  const username = user[0].username|| "zrl";
   const url = `https://scrapbook.hackclub.com/${username}`;
   console.log("URL", url);
   // Directly serve the HTML of the profile page
