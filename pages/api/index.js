@@ -21,27 +21,25 @@ module.exports = async (req, res) => {
     `);
   }
   // Find the user who set up the custom domain this site is being accessed from
-  const opts = {
-    maxRecords: 1,
-    filterByFormula: `{Custom Domain} = '${host}'`,
-  };
   const user = await fetch(
-    "https://api2.hackclub.com/v0.1/Summer%20of%20Making%20Streaks/Slack%20Accounts/" +
-      `?select=${JSON.stringify(opts)}&authKey=${process.env.AIRTABLE_KEY}`
+    "https://scrapbook.hackclub.com/api/users/"
   )
     .then((r) => r.json())
+    .then((r) => r.filter(function(user){
+        return user.customDomain == host;
+    }))
     .catch(() =>
       res.status(500).send("Encountered error locating appropriate profile")
     );
   console.log("User", user);
   // If the domain isn’t set up on a user
-  if (!Array.isArray(user)) {
+  if (user.length == 0) {
     return res
       .status(404)
       .send(`Unable to find a scrapbook page with domain ${host}.`);
   }
   // Get the username of the user
-  const username = user[0].fields["Username"] || "zrl";
+  const username = user.username|| "zrl";
   const url = `https://scrapbook.hackclub.com/${username}`;
   console.log("URL", url);
   // Directly serve the HTML of the profile page
