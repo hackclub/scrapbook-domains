@@ -34,9 +34,32 @@ module.exports = async (req, res) => {
   console.log("User", user);
   // If the domain isn’t set up on a user
   if (user.length == 0) {
-    return res
-      .status(404)
-      .send(`Unable to find a scrapbook page with domain ${host}.`);
+    const club = await fetch(
+      "https://scrapbook.hackclub.com/api/clubs/"
+    )
+      .then((r) => r.json())
+      .then((r) => r.filter(function(club){
+          return club.customDomain == host;
+      }))
+      .catch(() =>
+        res.status(500).send("Encountered error locating appropriate club")
+      );
+    if (club.length == 0) {
+      return res
+        .status(404)
+        .send(`Unable to find a scrapbook page with domain ${host}.`);
+    }
+    // Get the slug of the club
+    const slug = club[0].slug|| "zrl";
+    const url = `https://scrapbook.hackclub.com/clubs/${slug}`;
+    console.log("URL", url);
+    // Directly serve the HTML of the club page
+    const html = await fetch(url)
+      .then((r) => r.text())
+      .catch(() =>
+        res.status(500).send("Encountered error serving profile page")
+      );
+    return res.send(html);
   }
   // Get the username of the user
   const username = user[0].username|| "zrl";
@@ -48,5 +71,5 @@ module.exports = async (req, res) => {
     .catch(() =>
       res.status(500).send("Encountered error serving profile page")
     );
-  res.send(html);
+  return res.send(html);
 };
