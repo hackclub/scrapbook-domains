@@ -1,4 +1,6 @@
-# [Scrapbook](https://scrapbook.hackclub.com/) Domains
+# 🚨 DEPRECATED: [Scrapbook](https://scrapbook.hackclub.com/) Domains
+
+> This repo's functionality is now in [the main Scrapbook codebase](https://github.com/hackclub/scrapbook).
 
 This repo/function handles the custom domain functionality for [Hack Club](https://hackclub.com/)’s [Scrapbook](https://scrapbook.hackclub.com/), which was built as part of the [2020 Summer of Making](https://summer.hackclub.com/).
 
